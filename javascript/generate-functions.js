@@ -74,3 +74,27 @@ export function isOdd(num) {
   }
   return true;
 }
+
+// Unit tests.
+
+// unit test for isEmpty
+export function testIsEmpty() {
+  const obj = {
+    a: 1,
+  };
+  const obj2 = {};
+  const result = isEmpty(obj);
+  const result2 = isEmpty(obj2);
+  expect(result).toBe(false);
+  expect(result2).toBe(true);
+}
+
+// unit test for isPalindrome
+export function testIsPalindrome() {
+  const num = 12321;
+  const num2 = 123;
+  const result = isPalindrome(num);
+  const result2 = isPalindrome(num2);
+  expect(result).toBe(true);
+  expect(result2).toBe(false);
+}
