@@ -15,10 +15,31 @@ export function factorial(num) {
   }
 }
 
-// function that resolve the fizzbuzz problem
-export function fizzBuzz(num) {
-  if (num % 3 === 0 && num % 5 === 0) {
+// function that resolve fizzbuzz
+export function fizzBuzz(number) {
+  if (number % 3 === 0 && number % 5 === 0) {
     return "FizzBuzz";
+  } else if (number % 3 === 0) {
+    return "Fizz";
+  } else if (number % 5 === 0) {
+    return "Buzz";
+  }
+}
+
+// function that returns factorial of a number
+export function factorial(number) {
+  if (number === 0) {
+    return 1;
+    // if number is negative return -1
+  }
+
+  if (number < 0) {
+    return -1;
+  }
+
+  let result = 1;
+  for (let i = 1; i <= number; i++) {
+    result = result * i;
   }
 }
 
