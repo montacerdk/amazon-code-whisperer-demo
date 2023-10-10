@@ -6,8 +6,8 @@ const FrenchTranslations = {
     VeryHigh: "Très élevé (5)",
     High: "Élevé (4)",
     Medium: "Moyen (3)",
-    Low: "Faible (2)",
-    VeryLow: "Très faible (1)",
+    Low: "Bas (2)",
+    VeryLow: "Très bas (1)",
   },
 };
 

@@ -31,5 +31,5 @@ export class AppService {
     return 'Hello World!';
   }
 
-  getFizzBuzz: (numm: number) => string = fizzBuzz;
+  getFizzBuzz: (num: number) => string = fizzBuzz;
 }

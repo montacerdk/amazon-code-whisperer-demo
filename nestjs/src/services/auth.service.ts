@@ -13,10 +13,10 @@ export class AuthService {
   constructor(private usersService: UsersService) {}
 
   async validateUser(email: string, password: string): Promise<any> {
-    const user = await this.usersService.findOne(email);
     if (!isEmail(email)) {
       throw new UnauthorizedException();
     }
+    const user = await this.usersService.findOne(email);
 
     if (user && user.password === password) {
       const { password, ...result } = user;
