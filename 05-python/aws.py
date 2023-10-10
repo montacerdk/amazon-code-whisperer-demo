@@ -4,11 +4,11 @@ import os
 import json
 import logging
 
-# Variables for AWS credentials
-AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
-AWS_SECRET_ACCESS_KEY = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
-# AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY")
-AWS_REGION = os.environ.get("AWS_REGION")
+# variables for aws credenals
+aws_access_key_id = os.environ["AWS_ACCESS_KEY_ID"]
+aws_secret_access_key = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+# aws_secret_access_key = os.environ["AWS_SECRET_ACCESS_KEY"]
+aws_region = os.environ["AWS_REGION"]
 
 # function to upload a file to s3 bucket using sse
 def upload_file_sse(file_name, bucket, object_name=None, args=None):
