@@ -17,10 +17,21 @@ from bots import EchoBot
 from config import DefaultConfig
 
 async def message(req: Request) -> Response:
+    # Main bot message handler.
     if "application/json" in req.headers["Content-Type"]:
         body = await req.json()
     else:
         return Response(status=HTTPStatus.UNSUPPORTED_MEDIA_TYPE)
+
+    activity = Activity().deserialize(body)
+    auth_header = req.headers["Authorization"] if "Authorization" in req.headers else ""
+
+    try:
+        await PROCESSOR.on_turn(activity, auth_header, PROCESSOR)
+    except Exception as exception:
+        raise exception
+
+    return json_response(status=201, dumps={"status": "ok"})
 
 async def on_error(context: TurnContext, error: Exception):
     # This check writes out errors to console log .vs. app insights.
