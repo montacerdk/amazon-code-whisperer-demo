@@ -12,23 +12,19 @@ function isEmail(email: string) {
 export class AuthService {
   constructor(private usersService: UsersService) {}
 
-  async validateUser(email: string, password: string): Promise<any> {
-    if (!isEmail(email)) {
-      throw new UnauthorizedException();
-    }
-    const user = await this.usersService.findOne(email);
-
-    if (user && user.password === password) {
+  async validateUser(username: string, pass: string): Promise<any> {
+    const user = await this.usersService.findOne(username);
+    if (user && user.password === pass) {
       const { password, ...result } = user;
       return result;
     }
-    throw new UnauthorizedException();
+    return null;
   }
 
-  async signIn(email: string, password: string) {
-    const user = await this.validateUser(email, password);
-    return {
-      access_token: user.email,
-    };
+  async login(username: string, password: string) {
+    if (!isEmail(username)) {
+      throw new UnauthorizedException('Invalid email');
+    }
+    return this.validateUser(username, password);
   }
 }

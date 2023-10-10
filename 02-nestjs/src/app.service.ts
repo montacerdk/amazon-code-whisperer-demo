@@ -1,18 +1,5 @@
 import { Injectable } from '@nestjs/common';
 
-export const standardDeviation = (values: number[]) => {
-  const avg = values.reduce((a, b) => a + b, 0) / values.length;
-  const squareDiffs = values.map((value) => {
-    const diff = value - avg;
-    const sqrDiff = diff * diff;
-    return sqrDiff;
-  });
-
-  const avgSquareDiff =
-    squareDiffs.reduce((a, b) => a + b, 0) / squareDiffs.length;
-  return Math.sqrt(avgSquareDiff);
-};
-
 export const fizzBuzz = (numm: number) => {
   if (numm % 15 === 0) {
     return 'FizzBuzz';
