@@ -112,10 +112,20 @@ export function testIsEmpty() {
 
 // unit test for isPalindrome
 export function testIsPalindrome() {
-  const num = 12321;
+  const num = 121;
   const num2 = 123;
   const result = isPalindrome(num);
   const result2 = isPalindrome(num2);
+  expect(result).toBe(true);
+  expect(result2).toBe(false);
+}
+
+// unit test for isOdd
+export function testIsOdd() {
+  const num = 1;
+  const num2 = 2;
+  const result = isOdd(num);
+  const result2 = isOdd(num2);
   expect(result).toBe(true);
   expect(result2).toBe(false);
 }
